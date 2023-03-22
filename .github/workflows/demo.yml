@@ -1,3 +1,4 @@
+name: my-first-flow
 on:
   push:
     - 'main'
