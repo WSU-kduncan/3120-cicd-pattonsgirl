@@ -1,7 +1,7 @@
 on:
   push:
     - 'main'
-  workflow-dispatch
+      #workflow-dispatch
 jobs:
   hello-world:
     runs-on: ubuntu-latest
