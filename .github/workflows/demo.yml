@@ -1,0 +1,12 @@
+on:
+  push:
+    - 'main'
+  workflow-dispatch
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World!"
+      - uses: actions/checkout@v2
+      - run: ls
+      - run: echo "Goodbye!"
