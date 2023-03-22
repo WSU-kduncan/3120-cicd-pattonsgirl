@@ -1,8 +1,8 @@
 name: my-first-flow
 on:
   push:
-    - [main]
-      #workflow-dispatch
+    branchs: [main]
+    workflow-dispatch:
 jobs:
   hello-world:
     runs-on: ubuntu-latest
