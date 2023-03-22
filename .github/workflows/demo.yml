@@ -1,7 +1,7 @@
 name: my-first-flow
 on:
   push:
-    - 'main'
+    - [main]
       #workflow-dispatch
 jobs:
   hello-world:
