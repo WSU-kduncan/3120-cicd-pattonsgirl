@@ -12,4 +12,8 @@ jobs:
       - run: ls
       - docker login -u wsukduncan -pass mysupersecret
       - run: echo "Goodbye!"
-      - with: secret: ${{ secrets.DOCKERHUB_USERNAME }}
+      - shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
+        run: |
+          echo "$SUPER_SECRET"
