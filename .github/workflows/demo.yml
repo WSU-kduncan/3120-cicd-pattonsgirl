@@ -10,7 +10,7 @@ jobs:
       - run: echo "Hello World!"
       - uses: actions/checkout@v2
       - run: ls
-      - docker login -u wsukduncan -pass mysupersecret
+        #- docker login -u wsukduncan -pass mysupersecret
       - run: echo "Goodbye!"
       - shell: bash
         env:
