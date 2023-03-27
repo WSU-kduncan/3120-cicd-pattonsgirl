@@ -4,11 +4,21 @@ on:
     branches: [main]
     workflow-dispatch:
     tags:
+      - "v*.*.*"
 jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Collecting tag data
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            wsukduncan/s23site
+          tags: |
+            type=semver,pattern={{major}}
+            type=semver,pattern={{major}}.{{minor}}
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -26,5 +36,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: wsukduncan/s23site:latest
-          
+            #tags: wsukduncan/s23site:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
