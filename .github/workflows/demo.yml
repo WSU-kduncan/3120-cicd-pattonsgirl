@@ -7,16 +7,7 @@ jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World!"
       - uses: actions/checkout@v2
-      - run: ls
-        #- docker login -u wsukduncan -pass mysupersecret
-      - run: echo "Goodbye!"
-      - shell: bash
-        env:
-          SUPER_SECRET: ${{ secrets.DOCKERHUB_USERNAME }}
-        run: |
-          echo "$SUPER_SECRET"
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -28,11 +19,11 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB }}
+          password: ${{ secrets.DOCKERHUB_PAT }}
       -
         name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: wsukduncan/springcats:latest
+          tags: wsukduncan/s23site:latest
           
