@@ -1,0 +1,13 @@
+name: checkout-prod
+on:
+  push:
+    branches: [prod]
+    workflow-dispatch:
+    tags:
+      - "v*.*.*"
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ls
