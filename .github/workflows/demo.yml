@@ -42,3 +42,12 @@ jobs:
             ${{ steps.meta.outputs.tags }}
             ${{ secrets.DOCKERHUB_USERNAME }}/s23site:latest
           labels: ${{ steps.meta.outputs.labels }}
+
+  discord-hook:
+    needs: hello-world
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to webhook on Discord
+        uses: johnnyhuy/actions-discord-git-webhook@main
+        with: webhook_url: ${{ secrets.DISCORD_URL }}
+
