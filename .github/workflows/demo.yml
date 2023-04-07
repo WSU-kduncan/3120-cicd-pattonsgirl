@@ -49,5 +49,6 @@ jobs:
     steps:
       - name: Send message to webhook on Discord
         uses: johnnyhuy/actions-discord-git-webhook@main
-        with: webhook_url: ${{ secrets.DISCORD_URL }}
+        with: 
+          webhook_url: ${{ secrets.DISCORD_URL }}
 
